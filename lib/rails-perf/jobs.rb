@@ -35,8 +35,6 @@ module RailsPerf
             output = exec_relative(dir)
             @build.logger.info("sample result: #{output}")
 
-            # binding.pry
-
             begin
               output = JSON.parse(output).merge("build_id" => @build.id)
               RailsPerf.storage.put(output)
@@ -52,12 +50,12 @@ module RailsPerf
       private
 
       def bundle_relative(dir)
-        cmd = "cd #{dir.to_s} && #{rbenv} #{bundle_env(dir)} bundle install --path #{bundle_cache_path}"
+        cmd = "cd #{dir.to_s} && #{bundle_env(dir)} #{bin_path(:bundle)} install --path #{dir.join('bundle_cache')}"
         execute(cmd)
       end
 
       def exec_relative(dir)
-        cmd = "cd #{dir.to_s} && #{rbenv} #{bundle_env(dir)} ruby benchmark.rb"
+        cmd = "cd #{dir.to_s} && #{bundle_env(dir)} #{bin_path(:ruby)} benchmark.rb"
         execute(cmd)
       end
 
@@ -72,8 +70,10 @@ module RailsPerf
         end
       end
 
-      def rbenv
-        "RBENV_VERSION=#{@build.ruby_version}"
+      def bin_path(bin)
+        # TODO check if ruby exists
+        "~/.rbenv/versions/#{@build.ruby_version}/bin/#{bin}"
+        # bin
       end
 
       def bundle_cache_path

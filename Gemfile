@@ -9,3 +9,5 @@ gem 'activesupport'
 gem 'rake'
 gem "octokit", "~> 3.0"
 gem 'webmock'
+gem 'mina'
+gem 'puma'

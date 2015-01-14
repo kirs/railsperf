@@ -1,7 +1,6 @@
 module RailsPerf
   class ReportChartMapper
     def map(reports_hash)
-      puts reports_hash.inspect
       nodes = reports_hash.map { |r| r["entries"].size }.max - 1
 
       (0..nodes).map do |i|
