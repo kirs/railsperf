@@ -3,11 +3,23 @@ source "https://rubygems.org"
 gem 'mongo'
 gem 'bson_ext'
 gem 'sidekiq'
-gem 'pry'
-gem 'minitest'
 gem 'activesupport'
 gem 'rake'
 gem "octokit", "~> 3.0"
-gem 'webmock'
-gem 'mina'
 
+group :web do
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'nokogiri'
+  gem 'puma'
+end
+
+group :test do
+  gem 'minitest'
+  gem 'webmock'
+end
+
+group :development do
+  gem 'pry'
+  gem 'mina'
+end
