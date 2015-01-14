@@ -4,8 +4,6 @@ require "sinatra/json"
 require 'json'
 require 'active_support/core_ext/object/blank'
 
-require 'pry'
-
 $:.push File.expand_path("../../lib", __FILE__)
 require 'rails-perf'
 require 'rails-perf/queries'
