@@ -4,7 +4,6 @@ require 'fileutils'
 require 'tmpdir'
 require 'securerandom'
 require 'sidekiq'
-require 'pry'
 
 module RailsPerf
   module Jobs
