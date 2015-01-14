@@ -37,9 +37,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (2.10.2)
-      rack (>= 1.1, < 2.0)
-    rack (1.6.0)
     rake (10.4.2)
     redis (3.2.0)
     redis-namespace (1.5.1)
@@ -75,7 +72,6 @@ DEPENDENCIES
   mongo
   octokit (~> 3.0)
   pry
-  puma
   rake
   sidekiq
   webmock
