@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+<% @gems.each do |g| %>
+gem "<%= g.name %>"<% if g.version_and_source? %>, <%= g.version_and_source %><% end %><% end %>
+
+gem "benchmark-ips", github: "kirs/benchmark-ips"

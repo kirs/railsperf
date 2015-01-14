@@ -1,0 +1,46 @@
+<script type="text/javascript">
+$(function() {
+  $(".js-show-build-gemfile").click(function(e) {
+    e.preventDefault();
+    $(".js-gemfile-modal-body").html($(this).data('gemfile'))
+    $('.js-gemfile-modal').modal('show')
+  })
+})
+</script>
+
+<table class="table">
+  <thead>
+    <th>Build target</th>
+    <th>Title</th>
+    <th>Gemfile</th>
+    <th>Ready?</th>
+  </thead>
+
+  <tbody>
+    <% @rows.each do |row| %>
+      <tr>
+        <td><a href="/builds/<%= row.build.id %>"><%= row.build.tag || row.build.target %></a></td>
+        <td><%= row.build.title %></td>
+        <td><a href="javascript:;" class="js-show-build-gemfile" data-gemfile="<%= CGI.escapeHTML(row.gemfile) %>">Gemfile</a></td>
+        <td><%= row.status.ready? %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal fade js-gemfile-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">Gemfile content</h4>
+      </div>
+
+      <div class="modal-body">
+        <pre class="js-gemfile-modal-body"></pre></div>
+      </div>
+    </div>
+  </div>
+</div>

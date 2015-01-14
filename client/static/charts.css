@@ -1,0 +1,29 @@
+.bar {
+  fill: steelblue;
+}
+
+.bar_current {
+  fill: brown;
+}
+
+/*.bar:hover {
+  fill: brown;
+}*/
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/* tips: */
+/* http://bl.ocks.org/Caged/6476579 */

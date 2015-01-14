@@ -1,0 +1,13 @@
+<script class="js-benchmarks-data" type="text/json">
+<%= @reports.to_json %>
+</script>
+
+<div class="well">
+  <ul class="nav nav-tabs">
+    <% @components.each do |name| %>
+    <li class="<% if @current_component == name %>active<% end %>"><a href="/overall/<%= name %>"><%= name %></a></li>
+    <% end %>
+  </ul>
+
+  <div class="charts-container js-charts-container"></div>
+</div>

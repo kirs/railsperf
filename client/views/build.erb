@@ -1,0 +1,26 @@
+<script class="js-benchmarks-data" type="text/json">
+<%= @reports.to_json %>
+</script>
+
+<ol class="breadcrumb">
+  <li><a href="/builds">Builds</a></li>
+  <li class="active"><%= @build.tag || @build.target %></li>
+</ol>
+
+<h2><%= @build.title %></h2>
+<div class="well">
+  <ul class="nav nav-tabs">
+    <% @components.each do |name| %>
+    <li class="<% if @current_component == name %>active<% end %>"><a href="/builds/<%= @build.id %>/<%= name %>"><%= name %></a></li>
+    <% end %>
+  </ul>
+
+  <!-- <p>
+    Built against Gemfile:
+    <% @build_gemfile.each do |gemfile| %>
+    <a href="javascript:;" data-gemfile="<%= CGI.escapeHTML(gemfile.content) %>"><%= gemfile.title %></a>
+    <% end %>
+  </p> -->
+
+  <div class="charts-container js-charts-container"></div>
+</div>
