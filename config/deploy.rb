@@ -67,6 +67,9 @@ task :deploy => :environment do
     invoke :'deploy:cleanup'
 
     to :launch do
+      queue 'sudo sv restart railsperf_sinatra'
+      queue 'sudo sv restart railsperf_sidekiq'
+
       # queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       # queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
     end
