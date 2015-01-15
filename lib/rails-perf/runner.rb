@@ -21,7 +21,9 @@ module RailsPerf
     private
 
     def enqueue_jobs(build)
-      raise "id is blank" if build.id.blank?
+      if build.id.blank?
+        raise ArgumentError, "build id is blank"
+      end
 
       benchmarks = Dir.glob('benchmarks/*')
       benchmarks.each do |benchmark|
