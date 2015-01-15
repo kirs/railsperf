@@ -1,6 +1,9 @@
 require 'mongo'
 require 'rails-perf/build'
 
+# remove build:
+# RailsPerf.storage.builds.remove(tag: 'd8e710410ea300ec4626250c0b35946cb52bc38c')
+
 module RailsPerf
   class Storage
     attr_reader :collection
