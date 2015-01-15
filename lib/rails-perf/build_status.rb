@@ -1,5 +1,4 @@
-require 'rails-perf/sidekiq'
-require 'sidekiq/api'
+require 'rails-perf'
 
 module RailsPerf
   class BuildStatus
@@ -8,13 +7,13 @@ module RailsPerf
     end
 
     def ready?
-      queue.size.zero?
+      reports_count > 0
     end
 
     private
 
-    def queue
-      Sidekiq::Queue.new.select { |job| job.args[0] == @build.id }
+    def reports_count
+      RailsPerf.storage.reports.find(build_id: @build.id).count
     end
   end
 end
