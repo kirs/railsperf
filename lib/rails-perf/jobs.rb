@@ -1,4 +1,5 @@
 require 'rails-perf'
+require 'rails-perf/gemfile_builder'
 require 'json'
 require 'fileutils'
 require 'tmpdir'

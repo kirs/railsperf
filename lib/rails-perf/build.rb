@@ -2,6 +2,7 @@ require 'base64'
 
 require 'active_support'
 require 'active_support/core_ext/object/blank'
+require 'rails-perf/gemfile_builder'
 
 module RailsPerf
   class Build
