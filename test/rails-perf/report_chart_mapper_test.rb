@@ -12,7 +12,7 @@ class TestReportChartMapper < Minitest::Test
     assert_equal ["Model#id", "Model#last", "Model#first"], result.map { |m| m[0] }
 
     result.each do |r|
-      assert_equal ["3.2.0", "4.1.0", "4.2.0", "5.0.0beta"], r[1].map { |m| m[:label] }
+      assert_equal ["3.2.0", "4.1.0", "4.2.0", "current"], r[1].map { |m| m[:label] }
       assert r[1].all? { |m| m[:ips].present? }
     end
 
