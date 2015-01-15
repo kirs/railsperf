@@ -70,9 +70,7 @@ module RailsPerf
       end
 
       def bin_path(bin)
-        # TODO check if ruby exists
-        "~/.rbenv/versions/#{@build.ruby_version}/bin/#{bin}"
-        # bin
+        "RBENV_VERSION=#{@build.ruby_version} rbenv exec #{bin}"
       end
 
       def bundle_cache_path
