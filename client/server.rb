@@ -7,6 +7,7 @@ require 'active_support/core_ext/object/blank'
 
 $:.push File.expand_path("../../lib", __FILE__)
 require 'rails-perf'
+require 'rails-perf/sidekiq'
 require 'rails-perf/queries'
 require 'rails-perf/report_chart_mapper'
 require 'rails-perf/version_range'
