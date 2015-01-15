@@ -1,0 +1,94 @@
+{
+    "sha": "850159bd2c5e1e108d0256dd05424bbbf7926b59",
+        "commit": {
+              "author": {
+                      "name": "Sean Griffin",
+                            "email": "sean@seantheprogrammer.com",
+                                  "date": "2015-01-13T19:31:52Z"
+                                        },
+                  "committer": {
+                          "name": "Sean Griffin",
+                                "email": "sean@seantheprogrammer.com",
+                                      "date": "2015-01-13T19:31:52Z"
+                                            },
+                      "message": "Merge pull request #18478 from yoshiokatsuneo/active_record_connection_pool_error_disconnect\n\nActiveRecord: On reconnection failure, release only failed connetion.",
+                          "tree": {
+                                  "sha": "5c232d841b5c75f81746b7863494a9e839b4f56e",
+                                        "url": "https://api.github.com/repos/rails/rails/git/trees/5c232d841b5c75f81746b7863494a9e839b4f56e"
+                                              },
+                              "url": "https://api.github.com/repos/rails/rails/git/commits/850159bd2c5e1e108d0256dd05424bbbf7926b59",
+                                  "comment_count": 0
+                                      },
+          "url": "https://api.github.com/repos/rails/rails/commits/850159bd2c5e1e108d0256dd05424bbbf7926b59",
+            "html_url": "https://github.com/rails/rails/commit/850159bd2c5e1e108d0256dd05424bbbf7926b59",
+              "comments_url": "https://api.github.com/repos/rails/rails/commits/850159bd2c5e1e108d0256dd05424bbbf7926b59/comments",
+                "author": {
+                      "login": "sgrif",
+                          "id": 1529387,
+                              "avatar_url": "https://avatars.githubusercontent.com/u/1529387?v=3",
+                                  "gravatar_id": "",
+                                      "url": "https://api.github.com/users/sgrif",
+                                          "html_url": "https://github.com/sgrif",
+                                              "followers_url": "https://api.github.com/users/sgrif/followers",
+                                                  "following_url": "https://api.github.com/users/sgrif/following{/other_user}",
+                                                      "gists_url": "https://api.github.com/users/sgrif/gists{/gist_id}",
+                                                          "starred_url": "https://api.github.com/users/sgrif/starred{/owner}{/repo}",
+                                                              "subscriptions_url": "https://api.github.com/users/sgrif/subscriptions",
+                                                                  "organizations_url": "https://api.github.com/users/sgrif/orgs",
+                                                                      "repos_url": "https://api.github.com/users/sgrif/repos",
+                                                                          "events_url": "https://api.github.com/users/sgrif/events{/privacy}",
+                                                                              "received_events_url": "https://api.github.com/users/sgrif/received_events",
+                                                                                  "type": "User",
+                                                                                      "site_admin": false
+                                                                                          },
+                  "committer": {
+                        "login": "sgrif",
+                            "id": 1529387,
+                                "avatar_url": "https://avatars.githubusercontent.com/u/1529387?v=3",
+                                    "gravatar_id": "",
+                                        "url": "https://api.github.com/users/sgrif",
+                                            "html_url": "https://github.com/sgrif",
+                                                "followers_url": "https://api.github.com/users/sgrif/followers",
+                                                    "following_url": "https://api.github.com/users/sgrif/following{/other_user}",
+                                                        "gists_url": "https://api.github.com/users/sgrif/gists{/gist_id}",
+                                                            "starred_url": "https://api.github.com/users/sgrif/starred{/owner}{/repo}",
+                                                                "subscriptions_url": "https://api.github.com/users/sgrif/subscriptions",
+                                                                    "organizations_url": "https://api.github.com/users/sgrif/orgs",
+                                                                        "repos_url": "https://api.github.com/users/sgrif/repos",
+                                                                            "events_url": "https://api.github.com/users/sgrif/events{/privacy}",
+                                                                                "received_events_url": "https://api.github.com/users/sgrif/received_events",
+                                                                                    "type": "User",
+                                                                                        "site_admin": false
+                                                                                            },
+                    "parents": [
+                          {
+                                  "sha": "6cf71be0ae6f4dc9b6f4a540e48fed9be43a3f09",
+                                        "url": "https://api.github.com/repos/rails/rails/commits/6cf71be0ae6f4dc9b6f4a540e48fed9be43a3f09",
+                                              "html_url": "https://github.com/rails/rails/commit/6cf71be0ae6f4dc9b6f4a540e48fed9be43a3f09"
+                                                    },
+                        {
+                                "sha": "33fdb7f2929f57f7453299f231b2762954212611",
+                                      "url": "https://api.github.com/repos/rails/rails/commits/33fdb7f2929f57f7453299f231b2762954212611",
+                                            "html_url": "https://github.com/rails/rails/commit/33fdb7f2929f57f7453299f231b2762954212611"
+                                                  }
+      ],
+          "stats": {
+                "total": 3,
+                    "additions": 2,
+                        "deletions": 1
+                            },
+            "files": [
+                  {
+                          "sha": "d99dc9a5db44ddaf08a2ba778982acde2d65cf0e",
+                                "filename": "activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb",
+                                      "status": "modified",
+                                            "additions": 2,
+                                                  "deletions": 1,
+                                                        "changes": 3,
+                                                              "blob_url": "https://github.com/rails/rails/blob/850159bd2c5e1e108d0256dd05424bbbf7926b59/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb",
+                                                                    "raw_url": "https://github.com/rails/rails/raw/850159bd2c5e1e108d0256dd05424bbbf7926b59/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb",
+                                                                          "contents_url": "https://api.github.com/repos/rails/rails/contents/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb?ref=850159bd2c5e1e108d0256dd05424bbbf7926b59",
+                                                                                "patch": "@@ -454,7 +454,8 @@ def checkout_and_verify(c)\n         end\n         c\n       rescue\n-        disconnect!\n+        remove c\n+        c.disconnect!\n         raise\n       end\n     end"
+                                                                                      }
+        ]
+}

@@ -136,11 +136,4 @@ RUBY
     assert build.ruby_version.present?
     assert_equal build.ruby_version, inserted["mri"]
   end
-
-  private
-
-  def fixture_path(fixture)
-    current = Pathname.new(File.dirname(__FILE__)).join("..")
-    current.join("fixtures", fixture)
-  end
 end
