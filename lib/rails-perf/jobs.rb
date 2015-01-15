@@ -28,6 +28,10 @@ module RailsPerf
               f.write benchmark_code
             end
 
+            File.open(dir.join('.ruby-version'), 'w') do |f|
+              f.write @build.ruby_version
+            end
+
             bundle_out = bundle_relative(dir)
             @build.logger.info("bundle result: #{bundle_out}")
 
