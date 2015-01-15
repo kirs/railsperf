@@ -13,17 +13,21 @@ $(function() {
 <table class="table">
   <thead>
     <th>Build target</th>
-    <th>Title</th>
+    <th>Commit</th>
     <th>Gemfile</th>
-    <th>Ready?</th>
+    <th>Finished?</th>
   </thead>
 
   <tbody>
     <% @rows.each do |row| %>
       <tr>
         <td><a href="/builds/<%= row.build.id %>"><%= row.build.tag || row.build.target %></a></td>
-        <td><%= row.build.title %></td>
-        <td><a href="javascript:;" class="js-show-build-gemfile" data-gemfile="<%= CGI.escapeHTML(row.gemfile) %>">Gemfile</a></td>
+        <td>
+          <% if row.build.ref.present? %>
+          <a target="_blank" href="<%= row.build.github_commit.html_url %>"><%= row.build.commit.message %></a>
+          <% end %>
+        </td>
+        <td><a href="javascript:;" class="js-show-build-gemfile" data-gemfile="<%= CGI.escapeHTML(row.gemfile) %>">show</a></td>
         <td><%= row.status.ready? %></td>
         <td></td>
         <td></td>

@@ -68,7 +68,7 @@ get '/builds/:id' do
 
   @current_component = @components.first
 
-  @build_gemfile = []
+  @build_gemfile = RailsPerf::GemfileBuilder.new.build(@build.target)
   begin
     raw = RailsPerf::Queries::BuildReports.new(@build, @current_component).fetch
     @reports = RailsPerf::ReportChartMapper.new.map(raw)
@@ -91,7 +91,7 @@ get '/builds/:id/:component' do
     raise "component does not exist (allowed: #{@components})"
   end
 
-  @build_gemfile = []
+  @build_gemfile = RailsPerf::GemfileBuilder.new.build(@build.target)
 
   begin
     raw = RailsPerf::Queries::BuildReports.new(@build, @current_component).fetch

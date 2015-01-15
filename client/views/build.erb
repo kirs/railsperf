@@ -1,3 +1,12 @@
+<script type="text/javascript">
+$(function() {
+  $(".js-show-gemfile").click(function(e) {
+    e.preventDefault();
+    $('.js-gemfile-modal').modal('show')
+  })
+})
+</script>
+
 <script class="js-benchmarks-data" type="text/json">
 <%= @reports.to_json %>
 </script>
@@ -7,7 +16,11 @@
   <li class="active"><%= @build.tag || @build.target %></li>
 </ol>
 
-<h2><%= @build.title %></h2>
+<% if @build.ref.present? %>
+<p>Commit: <a href="<%= @build.github_commit.html_url %>"><%= @build.commit.message %></a></p>
+<% end %>
+<p><a href="javascript:;" class="js-show-gemfile">Target Gemfile</a> | <a href="https://github.com/kirs/rails-perf/tree/master/benchmarks" class="js-show-gemfile">Benchmarks code</a></p>
+
 <div class="well">
   <ul class="nav nav-tabs">
     <% @components.each do |name| %>
@@ -15,12 +28,20 @@
     <% end %>
   </ul>
 
-  <!-- <p>
-    Built against Gemfile:
-    <% @build_gemfile.each do |gemfile| %>
-    <a href="javascript:;" data-gemfile="<%= CGI.escapeHTML(gemfile.content) %>"><%= gemfile.title %></a>
-    <% end %>
-  </p> -->
-
   <div class="charts-container js-charts-container"></div>
+</div>
+
+<div class="modal fade js-gemfile-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">Gemfile content</h4>
+      </div>
+
+      <div class="modal-body">
+        <pre><%= @build_gemfile %></pre>
+      </div>
+    </div>
+  </div>
 </div>

@@ -6,7 +6,9 @@ require 'rails-perf/gemfile_builder'
 
 module RailsPerf
   class Build
-    attr_accessor :id, :target, :title, :target_url, :global, :tag
+    attr_accessor :id, :target, :title, :target_url, :global, :tag, :github_commit
+
+    alias_method :ref, :tag
 
     def id=(val)
       @id = val.to_s
@@ -19,11 +21,27 @@ module RailsPerf
         b.title =           hash["title"]
         b.global =          hash["global"]
         b.tag =             hash["tag"]
+        b.github_commit =   hash["github_commit"]
       end
     end
 
-    def sequence
-      3
+    def title
+      return @title if @title.present?
+      return if github_commit.nil?
+
+      github_commit[:commit][:message]
+    end
+
+    def commit
+      github_commit[:commit]
+    end
+
+    def github_commit
+      @github_commit ||= begin
+        return if tag.blank?
+
+        Octokit.commit('rails/rails', tag)
+      end
     end
 
     def github_url
@@ -36,6 +54,7 @@ module RailsPerf
         title: title,
         tag: tag,
         global: !!global,
+        github_commit: github_commit
       }
       base[:_id] = id if id.present?
       base
