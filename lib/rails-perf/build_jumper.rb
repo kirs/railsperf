@@ -26,7 +26,9 @@ module RailsPerf
 
         build = RailsPerf::Runner.new.execute({
           target: [['rails', { github: 'rails/rails', tag: @tag}]],
-          tag: @tag
+          tag: @tag,
+          title: commit.message,
+          github_commit: commit.to_h
         })
         @build_id = build.id
       end
@@ -35,10 +37,14 @@ module RailsPerf
     private
 
     def valid_ref?
-      Octokit.commit('rails/rails', @tag)
+      github_commit
       true
     rescue Octokit::NotFound
       false
+    end
+
+    def github_commit
+      @github_commit ||= Octokit.commit('rails/rails', @tag)
     end
   end
 
