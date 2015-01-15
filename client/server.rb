@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'sinatra'
 require "sinatra/json"
 require 'json'
+require 'rollbar//middleware/sinatra'
 require 'active_support/core_ext/object/blank'
 
 $:.push File.expand_path("../../lib", __FILE__)
@@ -16,6 +17,8 @@ require 'rails-perf/gemfile_builder'
 set :public_folder, File.dirname(__FILE__) + '/static'
 
 # require_relative './seeds.rb'
+
+use Rollbar::Middleware::Sinatra
 
 before do
   @components = RailsPerf::VersionRange.new.to_a

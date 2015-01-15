@@ -1,3 +1,4 @@
+require 'rails-perf'
 require 'rails-perf/storage'
 require 'active_support/core_ext/object/blank'
 
