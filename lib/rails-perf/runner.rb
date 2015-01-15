@@ -4,11 +4,11 @@ require 'rails-perf/jobs'
 
 module RailsPerf
   class Runner
-    def execute(options, global: false)
+    def execute(options)
       build = Build.new.tap do |b|
         b.target = options[:target] # or raise
         b.tag = options[:tag] # or raise
-        b.global = global
+        b.global = !!options[:global]
       end
 
       RailsPerf.storage.insert_build(build)
