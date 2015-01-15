@@ -1,10 +1,11 @@
 require 'rails-perf'
+require 'rails-perf/sidekiq'
 require 'rails-perf/gemfile_builder'
+
 require 'json'
 require 'fileutils'
 require 'tmpdir'
 require 'securerandom'
-require 'sidekiq'
 
 module RailsPerf
   module Jobs
