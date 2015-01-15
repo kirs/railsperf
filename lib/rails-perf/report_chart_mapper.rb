@@ -7,10 +7,11 @@ module RailsPerf
         [
           reports_hash.map { |r| r["entries"][i]["label"] }.find(&:present?),
           reports_hash.map { |r|
+            current = !!r["current"]
             {
-              label: r["version"],
+              label: current ? "current" : r["version"],
               ips: r["entries"][i]["ips"],
-              current: !!r["current"]
+              current: current
             }
           }
         ]

@@ -23,7 +23,7 @@ class TestQueries < Minitest::Test
   end
 
   def insert_global_builds
-    ['3.2.0', '4.1.0', '4.2.0'].each do |v|
+    ['4.2.0', '3.2.0', '4.1.0'].each do |v|
       build = RailsPerf::Build.new
       build.target = [['activerecord', v]]
       build.global = true

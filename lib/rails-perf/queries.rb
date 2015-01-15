@@ -22,7 +22,7 @@ module RailsPerf
       def fetch(component)
         builds.map { |b|
           storage.reports.find_one(build_id: b["_id"].to_s, component: component)
-        }
+        }.sort { |a, b| Gem::Version.new(a["version"]) <=> Gem::Version.new(b["version"])}
       end
 
       def builds
