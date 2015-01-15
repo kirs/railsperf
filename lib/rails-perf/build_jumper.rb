@@ -27,8 +27,7 @@ module RailsPerf
         build = RailsPerf::Runner.new.execute({
           target: [['rails', { github: 'rails/rails', tag: @tag}]],
           tag: @tag,
-          title: commit.message,
-          github_commit: commit.to_h
+          github_commit: github_commit.attrs
         })
         @build_id = build.id
       end

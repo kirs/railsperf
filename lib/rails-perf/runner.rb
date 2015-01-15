@@ -9,6 +9,7 @@ module RailsPerf
         b.target = options[:target] # or raise
         b.tag = options[:tag] # or raise
         b.global = !!options[:global]
+        # b.github_commit = options[:github_commit]
       end
 
       RailsPerf.storage.insert_build(build)

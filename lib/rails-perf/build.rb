@@ -6,7 +6,7 @@ require 'rails-perf/gemfile_builder'
 
 module RailsPerf
   class Build
-    attr_accessor :id, :target, :title, :target_url, :global, :tag, :github_commit
+    attr_accessor :id, :target, :target_url, :global, :tag, :github_commit
 
     alias_method :ref, :tag
 
@@ -18,7 +18,7 @@ module RailsPerf
       tap do |b|
         b.id =              hash["_id"]
         b.target =          hash["target"]
-        b.title =           hash["title"]
+        # b.title =           hash["title"]
         b.global =          hash["global"]
         b.tag =             hash["tag"]
         b.github_commit =   hash["github_commit"]
@@ -26,7 +26,7 @@ module RailsPerf
     end
 
     def title
-      return @title if @title.present?
+      # return @title if @title.present?
       return if github_commit.nil?
 
       github_commit[:commit][:message]
@@ -51,10 +51,10 @@ module RailsPerf
     def serialize
       base = {
         target: target,
-        title: title,
+        # title: title,
         tag: tag,
         global: !!global,
-        github_commit: github_commit
+        # github_commit: github_commit
       }
       base[:_id] = id if id.present?
       base
