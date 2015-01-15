@@ -12,7 +12,7 @@ module RailsPerf
 
     class AllBuilds < Base
       def fetch
-        storage.builds.find.to_a.map do |row|
+        storage.builds.find.sort(:global).to_a.map do |row|
           Build.new.unserialize(row)
         end
       end
