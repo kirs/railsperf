@@ -18,7 +18,7 @@ source "https://rubygems.org"
 gem "rails", source: "github", commit: "abc"
 gem "sqlite3"
 
-gem "benchmark-ips", github: "kirs/benchmark-ips"
+gem "benchmark-ips", github: "kirs/benchmark-ips", branch: "quiet-mode"
 MSG
 
     assert_equal expected, result
@@ -36,7 +36,7 @@ source "https://rubygems.org"
 gem "rails", "~> 4.2.0"
 gem "sqlite3"
 
-gem "benchmark-ips", github: "kirs/benchmark-ips"
+gem "benchmark-ips", github: "kirs/benchmark-ips", branch: "quiet-mode"
 MSG
 
     assert_equal expected, result
