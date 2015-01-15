@@ -13,7 +13,7 @@ $(function() {
 
 <ol class="breadcrumb">
   <li><a href="/builds">Builds</a></li>
-  <li class="active"><%= @build.tag || @build.target %></li>
+  <li class="active"><%= @build.target %></li>
 </ol>
 
 <% if @build.ref.present? %>
