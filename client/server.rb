@@ -30,6 +30,11 @@ get '/overall' do
   @current_component = @components.first
 
   raw = RailsPerf::Queries::ComparedReports.new.fetch(@current_component)
+  if raw.size.zero?
+    redirect '/builds'
+    return
+  end
+
   @reports = RailsPerf::ReportChartMapper.new.map(raw)
 
   erb :global
@@ -112,6 +117,9 @@ get '/builds' do
   @rows = builds.map { |b|
     BuildRow.new(b, RailsPerf::BuildStatus.new(b))
   }
+
+  @jobs_stats = OpenStruct.new
+  @jobs_stats.enqueued = Sidekiq::Queue.new.size
 
   erb :builds
 end
