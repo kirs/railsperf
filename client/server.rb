@@ -29,6 +29,11 @@ get '/' do
   redirect '/overall'
 end
 
+post '/webhook'
+  status 200
+  ""
+end
+
 get '/overall' do
   @current_tab = :overall
   @current_component = @components.first
