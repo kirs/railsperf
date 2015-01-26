@@ -12,6 +12,15 @@ class WebTest < Minitest::Test
     DbCleaner.run
   end
 
+  def test_push_payload
+    fixtures = Pathname.new(File.dirname(__FILE__)).join("fixtures")
+    raw_payload = File.open(fixtures.join("payload.json")).read
+
+    post "/webhook", raw_payload, "CONTENT_TYPE" => 'application/json'
+
+    assert last_response.ok?
+  end
+
   # def test_build_page
   #   insert_global_builds
   #   build = insert_current_build
@@ -20,7 +29,8 @@ class WebTest < Minitest::Test
   #   assert last_response.ok?
 
   #   doc = Nokogiri::HTML(last_response.body)
-  #   # doc.css("")
+  #   js_data = doc.css(".js-benchmarks-data")
+  #   raise js_data.inspect
   #   # assert_equal "Hello, World!", last_response.body
   # end
 
