@@ -4,3 +4,5 @@ rvm:
 script: bundle exec rake test
 cache: bundler
 sudo: false
+services:
+  - mongodb
