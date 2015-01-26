@@ -29,7 +29,7 @@ get '/' do
   redirect '/overall'
 end
 
-post '/webhook'
+post '/webhook' do
   status 200
   ""
 end
