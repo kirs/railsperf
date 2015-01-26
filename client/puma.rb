@@ -51,7 +51,7 @@ environment ENV['RACK_ENV']
 # “false”.
 #
 stdout_redirect '/home/railsperf/app/current/log/puma.stdout.log',
-                '/home/railsperf/app/current/log/puma.stderr.log'
+                '/home/railsperf/app/current/log/puma.stderr.log', true
 # stdout_redirect '/u/apps/lolcat/log/stdout', '/u/apps/lolcat/log/stderr', true
 
 # Disable request logging.
