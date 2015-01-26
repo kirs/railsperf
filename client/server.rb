@@ -30,7 +30,10 @@ get '/' do
 end
 
 post '/webhook' do
-  status 200
+  body = JSON.parse(request.body.read)
+
+  commit_logger.info "Commit pushed: #{body["head_commit"]["id"]} by #{body["head_commit"]["committer"]["username"]}"
+
   ""
 end
 
@@ -143,5 +146,11 @@ post '/builds/jump' do
   rescue RailsPerf::BuildJumper::InvalidRefError
     status 404
     ""
+  end
+end
+
+def commit_logger
+  @commit_logger ||= begin
+    Logger.new(File.dirname(__FILE__) + '/../log/commits.log')
   end
 end
