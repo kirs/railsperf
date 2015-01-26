@@ -1,5 +1,7 @@
 # rails-perf
 
+[![Build Status](https://travis-ci.org/kirs/rails-perf.svg?branch=master)](https://travis-ci.org/kirs/rails-perf)
+
 Yves Senn's quote:
 
     While performance improvements are made in specific areas the overall
