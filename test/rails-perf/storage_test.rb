@@ -28,7 +28,7 @@ class TestStorage < Minitest::Test
     assert_equal 0, @storage.builds.count
 
     build = RailsPerf::Build.new.tap do |b|
-      b.title = 'something'
+      # b.title = 'something'
       b.target = [
         ['rails', '~> 3.2.21'],
         ['sqlite3']
@@ -40,7 +40,7 @@ class TestStorage < Minitest::Test
     assert_equal 1, @storage.builds.count
 
     assert build.id.present?
-    assert_equal 'something', build.title
+    # assert_equal 'something', build.title
   end
 
   private

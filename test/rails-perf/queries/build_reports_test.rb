@@ -44,7 +44,7 @@ class TestQueries < Minitest::Test
 
   def insert_current_build
     build = RailsPerf::Build.new
-    build.title = 'Commit abc'
+    # build.title = 'Commit abc'
     build.global = false
     build.target = [['activerecord', { ref: 'abc' }]]
 
