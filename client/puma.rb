@@ -73,7 +73,7 @@ stdout_redirect '/home/railsperf/app/current/log/puma.stdout.log',
 # The default is “tcp://0.0.0.0:9292”.
 #
 # bind 'tcp://0.0.0.0:9292'
-# bind 'unix:///var/run/puma.sock'
+bind 'unix:///home/railsperf/app/shared/tmp/puma.sock'
 # bind 'unix:///var/run/puma.sock?umask=0111'
 # bind 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'
 
